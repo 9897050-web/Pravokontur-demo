@@ -26,30 +26,23 @@
           linear-gradient(90deg, #11182208 1px, transparent 1px);
         background-size: 32px 32px;
       }
-      header {
-        min-height: 76px;
-        padding: 0 7%;
+      .sidebar {
+        position: fixed;
+        inset: 0 auto 0 0;
+        width: 258px;
+        padding: 24px 16px;
+        background: #111a25;
+        color: #eef5f7;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background: #ffffffec;
-        border-bottom: 1px solid var(--line);
-        position: relative;
-      }
-      header:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 68%;
-        height: 3px;
-        background: linear-gradient(90deg, var(--mint), #72e6dc, transparent);
+        flex-direction: column;
+        z-index: 2;
       }
       .brand {
         display: flex;
         gap: 12px;
         align-items: center;
         font-weight: 800;
+        font-size: 18px;
       }
       .mark {
         display: grid;
@@ -61,12 +54,58 @@
         color: var(--mint);
       }
       .demo {
-        font-size: 13px;
-        color: var(--muted);
+        display: inline-block;
+        margin: 14px 6px 31px;
+        font-size: 11px;
+        letter-spacing: .08em;
+        line-height: 1.5;
+        color: #93a6b3;
+        text-transform: uppercase;
+      }
+      .nav-label {
+        margin: 0 10px 10px;
+        color: #66808e;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: .12em;
+      }
+      nav {
+        display: grid;
+        gap: 5px;
+      }
+      nav a {
+        display: flex;
+        gap: 11px;
+        align-items: center;
+        border-radius: 10px;
+        padding: 12px 11px;
+        color: #d6e0e5;
+        text-decoration: none;
+        font-size: 14px;
+      }
+      nav a:hover, nav a.active {
+        background: #243342;
+        color: #fff;
+      }
+      nav a.active:before {
+        content: "";
+        width: 3px;
+        height: 20px;
+        margin-left: -11px;
+        background: var(--mint);
+        border-radius: 2px;
+      }
+      .sidebar-bottom {
+        margin-top: auto;
+        padding: 15px 11px 4px;
+        border-top: 1px solid #2a3a49;
+        color: #91a5b2;
+        font-size: 12px;
+        line-height: 1.45;
       }
       main {
         max-width: 1180px;
-        margin: 0 auto;
+        margin: 0 auto 0 258px;
         padding: 64px 24px 36px;
       }
       .eyebrow {
@@ -219,7 +258,7 @@
       }
       footer {
         max-width: 1180px;
-        margin: 0 auto;
+        margin: 0 auto 0 258px;
         padding: 22px 24px 42px;
         color: #667487;
         font-size: 12px;
@@ -234,8 +273,17 @@
         line-height: 1.5;
       }
       @media (max-width: 800px) {
-        header {
-          padding: 0 24px;
+        .sidebar {
+          position: static;
+          width: 100%;
+          min-height: auto;
+          padding: 18px 20px;
+        }
+        .demo { margin: 10px 0 18px; }
+        nav { grid-template-columns: repeat(2, 1fr); }
+        .sidebar-bottom { display: none; }
+        main, footer {
+          margin-left: 0;
         }
         .hero,
         .flows {
@@ -257,12 +305,20 @@
     </style>
   </head>
   <body>
-    <header>
+    <aside class="sidebar">
       <div class="brand">
         <span class="mark">⚖</span><span>ПравоКонтур</span>
       </div>
       <span class="demo">Демонстрационная версия · без реальных данных</span>
-    </header>
+      <p class="nav-label">РАЗДЕЛЫ CRM</p>
+      <nav>
+        <a class="active" href="./">▦&nbsp; Обзор CRM</a>
+        <a href="intake/">◉&nbsp; Клиентский приём</a>
+        <a href="case/">⚖&nbsp; Карточка дела</a>
+        <a href="operations/">◷&nbsp; Операционный контур</a>
+      </nav>
+      <div class="sidebar-bottom">Защищённая версия: роли, документы, аудит действий и резервные копии.</div>
+    </aside>
     <main>
       <div class="hero">
         <section>
