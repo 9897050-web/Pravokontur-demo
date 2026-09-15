@@ -1,1 +1,112 @@
-<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ПравоКонтур — приём обращения</title><style>body{margin:0;font-family:Arial;background:#f8f9fd;color:#172545}header{padding:22px 9%;font-weight:bold;font-size:20px}main{max-width:1050px;margin:40px auto;padding:0 22px;display:grid;grid-template-columns:1fr 420px;gap:60px}.tag{color:#4059d6;font-weight:bold}h1{font-size:42px;line-height:1.12}.form{background:#fff;border:1px solid #dde3f1;border-radius:20px;padding:26px;box-shadow:0 15px 40px #17254518}textarea{width:100%;height:160px;box-sizing:border-box;border:1px solid #cdd5e8;border-radius:12px;padding:14px;font:15px Arial}button{width:100%;margin-top:12px;padding:14px;border:0;border-radius:10px;background:#4f6df5;color:#fff;font-weight:bold}.ghost{background:#edf1fa;color:#172545}@media(max-width:700px){main{grid-template-columns:1fr}h1{font-size:32px}}</style><header>⚖ ПравоКонтур</header><main><section><p class="tag">ПЕРВИЧНЫЙ РАЗБОР ОБРАЩЕНИЯ</p><h1>Расскажите, что произошло. Поможем понять следующий шаг.</h1><p>Опишите вопрос текстом или голосом. Система определит направление, проверит срочность и предложит безопасный путь решения.</p><p>Информация используется для первичного разбора. Юридически значимые документы проверяет юрист.</p></section><section class="form"><b>Опишите проблему</b><textarea id="t" placeholder="Например: застройщик переносит сдачу квартиры…"></textarea><button class="ghost" onclick="alert('Голосовой ввод будет подключён на этапе запуска')">🎙 Рассказать голосом</button><button onclick="go()">Разобрать обращение</button><p id="r"></p></section></main><script>function go(){let t=document.getElementById('t');let r=document.getElementById('r');if(!t.value.trim())return alert('Опишите ситуацию');r.innerHTML='<b>Обращение принято</b><br><br>Направление: спор с застройщиком. Нужна проверка документов, поэтому обращение передано профильному юристу.'}</script></html>
+<!doctype html>
+<html lang="ru">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  /><title>ПравоКонтур — приём обращения</title
+  ><style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #f8f9fd;
+      color: #172545;
+    }
+    header {
+      padding: 22px 9%;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    main {
+      max-width: 1050px;
+      margin: 40px auto;
+      padding: 0 22px;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 60px;
+    }
+    .tag {
+      color: #4059d6;
+      font-weight: bold;
+    }
+    h1 {
+      font-size: 42px;
+      line-height: 1.12;
+    }
+    .form {
+      background: #fff;
+      border: 1px solid #dde3f1;
+      border-radius: 20px;
+      padding: 26px;
+      box-shadow: 0 15px 40px #17254518;
+    }
+    textarea {
+      width: 100%;
+      height: 160px;
+      box-sizing: border-box;
+      border: 1px solid #cdd5e8;
+      border-radius: 12px;
+      padding: 14px;
+      font: 15px Arial;
+    }
+    button {
+      width: 100%;
+      margin-top: 12px;
+      padding: 14px;
+      border: 0;
+      border-radius: 10px;
+      background: #4f6df5;
+      color: #fff;
+      font-weight: bold;
+    }
+    .ghost {
+      background: #edf1fa;
+      color: #172545;
+    }
+    @media (max-width: 700px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
+  <header>⚖ ПравоКонтур</header>
+  <main>
+    <section>
+      <p class="tag">ПЕРВИЧНЫЙ РАЗБОР ОБРАЩЕНИЯ</p>
+      <h1>Расскажите, что произошло. Поможем понять следующий шаг.</h1>
+      <p>
+        Опишите вопрос текстом или голосом. Система определит направление,
+        проверит срочность и предложит безопасный путь решения.
+      </p>
+      <p>
+        Информация используется для первичного разбора. Юридически значимые
+        документы проверяет юрист.
+      </p>
+    </section>
+    <section class="form">
+      <b>Опишите проблему</b
+      ><textarea
+        id="t"
+        placeholder="Например: застройщик переносит сдачу квартиры…"
+      ></textarea
+      ><button
+        class="ghost"
+        onclick="alert('Голосовой ввод будет подключён на этапе запуска')"
+      >
+        🎙 Рассказать голосом</button
+      ><button onclick="go()">Разобрать обращение</button>
+      <p id="r"></p>
+    </section>
+  </main>
+  <script>
+    function go() {
+      let t = document.getElementById("t");
+      let r = document.getElementById("r");
+      if (!t.value.trim()) return alert("Опишите ситуацию");
+      r.innerHTML =
+        "<b>Обращение принято</b><br><br>Направление: спор с застройщиком. Нужна проверка документов, поэтому обращение передано профильному юристу.";
+    }
+  </script>
+</html>

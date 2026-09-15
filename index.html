@@ -1,1 +1,374 @@
-<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ПравоКонтур — CRM</title><style>body{margin:0;font-family:Arial;background:#f6f7fb;color:#172545}header{background:#101b37;color:#fff;padding:20px 8%;display:flex;justify-content:space-between}main{max-width:1200px;margin:36px auto;padding:0 22px}.tag{color:#4f6df5;font-weight:bold}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card,article{background:#fff;border:1px solid #dde3f1;border-radius:16px;padding:20px}.n{font-size:32px;color:#4f6df5;font-weight:bold}table{width:100%;border-collapse:collapse;margin-top:25px;background:#fff}th,td{padding:16px;border-bottom:1px solid #edf0f7;text-align:left}tr:hover{background:#f5f7ff}button{background:#4f6df5;color:#fff;border:0;border-radius:8px;padding:11px 15px;font-weight:bold}@media(max-width:700px){.cards{grid-template-columns:repeat(2,1fr)}th:nth-child(3),td:nth-child(3){display:none}}</style><header><b>⚖ ПравоКонтур</b><span>Юридическая CRM · Демо</span></header><main><p class="tag">РАБОЧЕЕ ПРОСТРАНСТВО</p><h1>Сегодня в работе</h1><div class="cards"><div class="card"><small>Новых обращений</small><div class="n">18</div></div><div class="card"><small>Требуют юриста</small><div class="n">6</div></div><div class="card"><small>Дела в работе</small><div class="n">24</div></div><div class="card"><small>В срок</small><div class="n">91%</div></div></div><article><h2>Последние обращения</h2><table><tr><th>Клиент / вопрос</th><th>Направление</th><th>Канал</th><th>Риск</th></tr><tr><td><b>Анна Соколова</b><br>Застройщик перенёс сдачу квартиры</td><td>Недвижимость</td><td>Сайт · голос</td><td>Высокий</td></tr><tr><td><b>ООО «Вектор»</b><br>Контрагент не оплатил поставку</td><td>Арбитраж</td><td>Почта</td><td>Высокий</td></tr><tr><td><b>Михаил Орлов</b><br>Увольнение и расчёт компенсации</td><td>Трудовое</td><td>Телефон</td><td>Средний</td></tr></table></article><article><h2>Карточка обращения</h2><p><b>Анна Соколова · спор с застройщиком</b></p><p>ИИ определил направление и рекомендует консультацию юриста после проверки документов.</p><button onclick="alert('В демо обращение передано в очередь юристов')">Передать юристу</button></article></main></html>
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ПравоКонтур — демо юридической CRM</title>
+    <style>
+      :root {
+        --ink: #111822;
+        --panel: #18222f;
+        --mint: #19c6b5;
+        --muted: #6c7888;
+        --line: #dce3ea;
+        --paper: #f3f6f8;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, Arial, sans-serif;
+        background: var(--paper);
+        color: var(--ink);
+        background-image:
+          linear-gradient(#11182208 1px, transparent 1px),
+          linear-gradient(90deg, #11182208 1px, transparent 1px);
+        background-size: 32px 32px;
+      }
+      header {
+        min-height: 76px;
+        padding: 0 7%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #ffffffec;
+        border-bottom: 1px solid var(--line);
+        position: relative;
+      }
+      header:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 68%;
+        height: 3px;
+        background: linear-gradient(90deg, var(--mint), #72e6dc, transparent);
+      }
+      .brand {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        font-weight: 800;
+      }
+      .mark {
+        display: grid;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 11px;
+        background: var(--panel);
+        color: var(--mint);
+      }
+      .demo {
+        font-size: 13px;
+        color: var(--muted);
+      }
+      main {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 64px 24px 36px;
+      }
+      .eyebrow {
+        color: #0f9b91;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 28px;
+        align-items: end;
+      }
+      .hero h1 {
+        font-size: clamp(34px, 5vw, 58px);
+        line-height: 1.04;
+        margin: 16px 0;
+      }
+      .lead {
+        max-width: 630px;
+        font-size: 18px;
+        line-height: 1.6;
+        color: #455366;
+      }
+      .status {
+        background: var(--panel);
+        border-radius: 20px;
+        padding: 25px;
+        color: #fff;
+        box-shadow: 0 18px 40px #11182225;
+      }
+      .status p {
+        margin: 0;
+        color: #b8c5cf;
+        font-size: 14px;
+      }
+      .status strong {
+        display: block;
+        margin: 9px 0 20px;
+        font-size: 21px;
+      }
+      .dot {
+        display: inline-block;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--mint);
+        margin-right: 7px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+        margin: 46px 0 30px;
+      }
+      .metric,
+      .card {
+        background: #fffffff2;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 20px;
+        box-shadow: 0 10px 24px #1118220c;
+      }
+      .metric small {
+        color: var(--muted);
+      }
+      .metric b {
+        display: block;
+        margin-top: 10px;
+        font-size: 30px;
+        color: #0f9b91;
+      }
+      .flows {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .card h2 {
+        font-size: 18px;
+        margin: 13px 0 8px;
+      }
+      .card p {
+        font-size: 14px;
+        line-height: 1.55;
+        color: #5b6879;
+        min-height: 65px;
+      }
+      .icon {
+        font-size: 23px;
+      }
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+        border-radius: 10px;
+        padding: 12px 15px;
+        background: var(--mint);
+        color: #062826;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 800;
+      }
+      .button.dark {
+        background: var(--panel);
+        color: #fff;
+      }
+      .section {
+        margin-top: 48px;
+      }
+      .section h2 {
+        font-size: 26px;
+        margin: 0 0 8px;
+      }
+      .section > p {
+        color: var(--muted);
+        margin-top: 0;
+      }
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        margin-top: 22px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #fff;
+      }
+      .step {
+        padding: 20px;
+        border-right: 1px solid var(--line);
+      }
+      .step:last-child {
+        border: 0;
+      }
+      .num {
+        color: #0f9b91;
+        font-size: 12px;
+        font-weight: 800;
+      }
+      .step b {
+        display: block;
+        margin: 10px 0 6px;
+      }
+      .step span {
+        font-size: 13px;
+        line-height: 1.45;
+        color: var(--muted);
+      }
+      footer {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 22px 24px 42px;
+        color: #667487;
+        font-size: 12px;
+      }
+      .notice {
+        margin-top: 30px;
+        padding: 14px 16px;
+        border-radius: 12px;
+        background: #e8f7f5;
+        color: #285651;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+      @media (max-width: 800px) {
+        header {
+          padding: 0 24px;
+        }
+        .hero,
+        .flows {
+          grid-template-columns: 1fr;
+        }
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .steps {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .step:nth-child(2) {
+          border-right: 0;
+        }
+        .step:nth-child(-n + 2) {
+          border-bottom: 1px solid var(--line);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <span class="mark">⚖</span><span>ПравоКонтур</span>
+      </div>
+      <span class="demo">Демонстрационная версия · без реальных данных</span>
+    </header>
+    <main>
+      <div class="hero">
+        <section>
+          <p class="eyebrow">ЮРИДИЧЕСКАЯ CRM ДЛЯ СМЕШАННОЙ ПРАКТИКИ</p>
+          <h1>От первого обращения до результата по делу.</h1>
+          <p class="lead">
+            ПравоКонтур собирает обращения с сайта, телефона и мессенджеров,
+            определяет маршрут, помогает команде юристов вести дело, сроки,
+            документы и оплату.
+          </p>
+        </section>
+        <aside class="status">
+          <p><span class="dot"></span>ДЕМО ОТКРЫТО ДЛЯ ПРОСМОТРА</p>
+          <strong>Клиентский путь + внутренняя работа юристов</strong>
+          <p>
+            В боевой версии данные, доступы и документы размещаются в защищённом
+            контуре юридической фирмы.
+          </p>
+        </aside>
+      </div>
+      <div class="grid">
+        <div class="metric"><small>Каналы приёма</small><b>4</b></div>
+        <div class="metric"><small>Практики права</small><b>19</b></div>
+        <div class="metric"><small>Контуры работы</small><b>3</b></div>
+        <div class="metric"><small>Автоподача в суд</small><b>Нет</b></div>
+      </div>
+      <section class="flows">
+        <article class="card">
+          <div class="icon">🗣</div>
+          <h2>Клиентский приём</h2>
+          <p>
+            Клиент описывает проблему текстом или голосом. Простые случаи
+            получают понятный следующий шаг, сложные — передаются юристу.
+          </p>
+          <a class="button" href="intake/">Открыть клиентский сценарий</a>
+        </article>
+        <article class="card">
+          <div class="icon">⚖</div>
+          <h2>Карточка дела</h2>
+          <p>
+            Направление права, ответственный юрист, команда, папки документов и
+            черновики процессуальных документов по порядку.
+          </p>
+          <a
+            class="button dark"
+            href="case/"
+            >Посмотреть карточку дела</a
+          >
+        </article>
+        <article class="card">
+          <div class="icon">▦</div>
+          <h2>Операционный контур</h2>
+          <p>
+            Задачи и сроки, календарь, счета, клиентский кабинет и модель
+            ролевого доступа для будущей защищённой версии.
+          </p>
+          <a
+            class="button dark"
+            href="operations/"
+            >Открыть рабочий контур</a
+          >
+        </article>
+      </section>
+      <section class="section">
+        <p class="eyebrow">КАК РАБОТАЕТ МАРШРУТ</p>
+        <h2>Ни один запрос не остаётся без следующего действия</h2>
+        <p>
+          Демо показывает логику работы. Юридическое решение и отправку
+          документов всегда подтверждает специалист.
+        </p>
+        <div class="steps">
+          <div class="step">
+            <span class="num">01</span><b>Обращение</b
+            ><span
+              >Сайт, голос, телефон, почта, мессенджер или ручной ввод
+              менеджером.</span
+            >
+          </div>
+          <div class="step">
+            <span class="num">02</span><b>Разбор</b
+            ><span
+              >Определяется практика, сложность, срочность и нужные
+              документы.</span
+            >
+          </div>
+          <div class="step">
+            <span class="num">03</span><b>Работа юриста</b
+            ><span
+              >Дело получает ответственного, задачи, сроки, папки и
+              команду.</span
+            >
+          </div>
+          <div class="step">
+            <span class="num">04</span><b>Результат</b
+            ><span
+              >Черновики, коммуникация с клиентом, счёт и контроль
+              исполнения.</span
+            >
+          </div>
+        </div>
+      </section>
+      <div class="notice">
+        <b>Важно:</b> эта страница — презентационное демо. В ней нет реальных
+        клиентских данных, оплаты и автоматической подачи документов в суд.
+      </div>
+    </main>
+    <footer>ПравоКонтур · демо юридической CRM</footer>
+  </body>
+</html>
