@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ru">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  /><title>ПравоКонтур — операционный контур</title
+  ><style>
+    :root {
+      --ink: #111822;
+      --mint: #19c6b5;
+      --line: #dce3ea;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f6f8;
+      color: var(--ink);
+    }
+    header {
+      padding: 22px 8%;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    a {
+      color: #0f9b91;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    main {
+      max-width: 1180px;
+      margin: auto;
+      padding: 42px 24px;
+    }
+    h1 {
+      font-size: 36px;
+      margin: 10px 0;
+    }
+    p {
+      color: #627082;
+      line-height: 1.55;
+    }
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 28px 0;
+    }
+    .tabs a {
+      padding: 10px 13px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      color: #344252;
+      font-size: 14px;
+    }
+    .tabs a:first-child {
+      background: #e8f7f5;
+      color: #0f9b91;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .card,
+    section {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .task {
+      border-top: 1px solid #edf0f3;
+      padding: 13px 0;
+      font-size: 14px;
+    }
+    .tag {
+      display: inline-block;
+      border-radius: 20px;
+      padding: 5px 9px;
+      font-size: 12px;
+      font-weight: bold;
+      background: #fff2e5;
+      color: #a15b00;
+    }
+    .tag.ok {
+      background: #e9f9ef;
+      color: #16783f;
+    }
+    .kpi {
+      font-size: 28px;
+      font-weight: bold;
+      color: #0f9b91;
+      margin-top: 9px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    td,
+    th {
+      padding: 13px;
+      text-align: left;
+      border-bottom: 1px solid #edf0f3;
+    }
+    button {
+      border: 0;
+      border-radius: 9px;
+      background: var(--mint);
+      padding: 10px 12px;
+      font-weight: bold;
+      color: #062826;
+    }
+    .side{position:fixed;inset:0 auto 0 0;width:256px;padding:20px 16px;background:#101b37;color:#c8d1e5}.brand{display:flex;gap:12px;align-items:center;padding:0 8px 30px;color:#fff}.logo{display:grid;place-items:center;width:40px;height:40px;background:#4f6df5;border-radius:12px;font-size:21px}.brand b{display:block;font-size:16px}.brand small{color:#90a0be}.side nav a{display:block;margin:3px 0;padding:12px;border-radius:10px;color:#c8d1e5;text-decoration:none;font-weight:600}.side nav a:hover,.side nav a.active{background:#ffffff18;color:#fff}.side-note{position:absolute;left:16px;right:16px;bottom:20px;padding:12px;border-radius:10px;background:#ffffff0c;font-size:12px;line-height:1.5;color:#9cabca}.topline{margin-left:256px;padding:22px 8%;background:#fff;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.topline a{color:#4f6df5}main{margin-left:256px}.tabs a:first-child{background:#eef1ff;color:#4f6df5}.kpi{color:#4f6df5}@media(max-width:750px){.side{position:static;width:auto}.side-note{display:none}.side nav{display:grid;grid-template-columns:repeat(2,1fr)}.topline,main{margin-left:0}.topline{padding:20px 24px}}
+    @media (max-width: 750px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      table {
+        font-size: 12px;
+      }
+      header {
+        padding: 20px 24px;
+      }
+    }
+  </style>
+  <aside class="side"><div class="brand"><span class="logo">⚖</span><span><b>ПравоКонтур</b><small>Юридическая CRM</small></span></div><nav><a href="../">▦ &nbsp;Обзор</a><a href="../#appeals">◉ &nbsp;Обращения</a><a href="../case/">⚖ &nbsp;Дела</a><a class="active" href="./">▧ &nbsp;Операционный контур</a></nav><div class="side-note">Демо-режим. Реальные документы и данные клиентов не используются.</div></aside><header class="topline">
+    <a href="../">← ПравоКонтур</a><b>Операционный контур · Демо</b>
+  </header>
+  <main>
+    <p
+      style="
+        font-size: 12px;
+        color: #0f9b91;
+        font-weight: bold;
+        letter-spacing: 0.12em;
+      "
+    >
+      УПРАВЛЕНИЕ ЮРИДИЧЕСКОЙ ФИРМОЙ
+    </p>
+    <h1>Сроки, финансы, клиенты и доступы</h1>
+    <p>
+      Демонстрационный рабочий экран: данные показаны как пример и не являются
+      реальными.
+    </p>
+    <nav class="tabs">
+      <a href="#tasks">Задачи</a><a href="#calendar">Календарь</a
+      ><a href="#finance">Финансы</a><a href="#portal">Клиентский кабинет</a
+      ><a href="#security">Безопасность</a>
+    </nav>
+    <div class="grid">
+      <div class="card">
+        <small>Оплачено за месяц</small>
+        <div class="kpi">62 900 ₽</div>
+      </div>
+      <div class="card">
+        <small>Ожидают оплаты</small>
+        <div class="kpi">12 000 ₽</div>
+      </div>
+      <div class="card">
+        <small>Критичных сроков</small>
+        <div class="kpi">2</div>
+      </div>
+    </div>
+    <section id="tasks" style="margin-top: 20px">
+      <h2>Задачи и контроль сроков</h2>
+      <div class="task">
+        <span class="tag">Сегодня · 15:00</span
+        ><b style="display: block; margin-top: 8px"
+          >Проверить договор долевого участия</b
+        >
+        <p>ПК-1048 · Анна Белова</p>
+      </div>
+      <div class="task">
+        <span class="tag">Сегодня · 17:30</span
+        ><b style="display: block; margin-top: 8px"
+          >Собрать расчёт задолженности</b
+        >
+        <p>ПК-1047 · Иван Петров</p>
+      </div>
+      <div class="task">
+        <span class="tag ok">Выполнено</span
+        ><b style="display: block; margin-top: 8px"
+          >Перезвонить клиенту по трудовому спору</b
+        >
+        <p>ПК-1046 · Менеджер приёма</p>
+      </div>
+    </section>
+    <div class="grid" style="margin-top: 20px">
+      <section id="calendar">
+        <h2>Календарь</h2>
+        <p><b>Сегодня, 14:00</b><br />Заседание по делу ПК-1048</p>
+        <p><b>Завтра, 11:30</b><br />Срок направления претензии</p>
+        <p><b>18 сентября</b><br />Подготовить пакет документов</p>
+      </section>
+      <section id="portal">
+        <h2>Клиентский кабинет</h2>
+        <p><b>Анна Соколова · ПК-1048</b></p>
+        <p>Статус: собираем документы для досудебной претензии.</p>
+        <p>Доступны: договор, чек-лист, счёт.</p>
+        <button
+          onclick="alert('В боевой версии сообщение отправляется в защищённый кабинет клиента')"
+        >
+          Написать клиенту
+        </button>
+      </section>
+      <section id="security">
+        <h2>Безопасность</h2>
+        <p><b>Ролевой доступ</b><br />Юрист видит назначенные дела.</p>
+        <p><b>2FA</b><br />Подтверждение входа для сотрудников.</p>
+        <p><b>Аудит</b><br />Фиксация действий с документами.</p>
+      </section>
+    </div>
+    <section id="finance" style="margin-top: 20px">
+      <h2>Счета и оплаты</h2>
+      <table>
+        <tr>
+          <th>Счёт</th>
+          <th>Клиент</th>
+          <th>Услуга</th>
+          <th>Сумма</th>
+          <th>Статус</th>
+        </tr>
+        <tr>
+          <td>СЧ-241</td>
+          <td>Анна Соколова</td>
+          <td>Анализ и претензия</td>
+          <td>12 000 ₽</td>
+          <td><span class="tag">Ожидает оплаты</span></td>
+        </tr>
+        <tr>
+          <td>СЧ-240</td>
+          <td>ООО «Вектор»</td>
+          <td>Арбитражное сопровождение</td>
+          <td>45 000 ₽</td>
+          <td><span class="tag ok">Оплачен</span></td>
+        </tr>
+      </table>
+    </section>
+  </main>
+</html>
